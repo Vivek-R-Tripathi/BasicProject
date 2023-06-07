@@ -1,1 +1,92 @@
-<h1>Vivek Ram tripathi</h1>
+<h1>Vivek Ram tripathi-> {{name}}</h1>
+
+{{viratObj.Name}}
+
+<img [style.width]= "'40px'" src="{{viratObj.src1}}" alt="">
+
+<input type="text" [class]='isClass'>
+<!-- style binding type1  -->
+<h2 [style.color]="'red'" [style.font-size.px]="'100'">My Name is Vivek Ram</h2>
+<!-- style binding type1  -->
+<h2 [style]="isStyleBinding">My Name is Vivek Ram</h2>
+<!-- template reference variable -->
+
+<input type="text" #templvar value="abccc">
+
+{{templvar.value}}
+
+<!-- ng If Example -->
+<!-- template reference variable ki madad se if else use kar sakte hai -->
+<div *ngIf="show; else norecord">
+
+  <ul>
+    <li>  One</li>
+    <li>  two</li>
+    <li>  three</li>
+  </ul>
+</div>
+
+<div *ngIf="show2 then norecord1; else norecord2">
+
+  <ul>
+    <li>  One</li>
+    <li>  two</li>
+    <li>  three</li>
+  </ul>
+</div>
+
+<!-- ye template div ke andar apne ko kar lega -->
+<ng-template #norecord
+> no record found
+</ng-template>
+
+
+<!-- Another way -->
+
+<ng-template #norecord1
+> <ul>
+  <li>  One</li>
+  <li>  two</li>
+  <li>  three</li>
+</ul>
+</ng-template>
+
+<ng-template #norecord2
+> no record found
+</ng-template>
+
+
+<!-- Implementation of *ngFor -->
+
+    <ul>
+      <li *ngFor="let employee of employees; index as index; first as first;last as last">
+        {{employee}} {{index}} {{first}} {{last}}</li>
+    </ul>
+
+
+    <table border="1">
+      <thead>
+        <tr>
+        <th>Index</th>
+        <th>Name</th>
+        <th>Salary</th>
+        <th>Designation</th>
+        <th>Is First</th>
+        <th>Is Last</th>
+        <th>Is Even</th>
+      </tr>
+      </thead>
+      <tbody>
+        <!-- we can do multiple thing in ngfor -->
+        <tr *ngFor="let employeeInfo of employeesInfo; index as i; first as f; last as l; even as e ">
+          <th>{{i}}</th>
+          <th>{{employeeInfo.name}}</th>
+          <th>{{employeeInfo.salary}}</th>
+          <th>{{employeeInfo.designation}}</th>
+          <th>{{f}}</th>
+          <th>{{l}}</th>
+          <th>{{e}}</th>
+        </tr>
+      </tbody>
+    </table>
+
